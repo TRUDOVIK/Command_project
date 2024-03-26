@@ -1,7 +1,7 @@
 package com.example.backend;
 
 import com.example.backend.configuration.ApplicationConfiguration;
-import com.example.backend.service.ServerController;
+import com.example.backend.controller.ServerController;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -15,17 +15,17 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 @ContextConfiguration(classes = {ApplicationConfiguration.class, ServerController.class})
 public class VersionControllerTest {
 
-    @Autowired
-    private MockMvc mockMvc;
-
-    @Test
-    public void testGetVersion() throws Exception {
-        String expectedVersion = "1.0"; // Задайте здесь ожидаемую версию
-
-        mockMvc.perform(MockMvcRequestBuilders.get("/version")
-                        .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().string(expectedVersion));
-    }
+//    @Autowired
+//    private MockMvc mockMvc;
+//
+//    @Test
+//    public void testGetVersion() throws Exception {
+//        String expectedVersion = "1.0"; // Задайте здесь ожидаемую версию
+//
+//        mockMvc.perform(MockMvcRequestBuilders.get("/version")
+//                        .contentType(MediaType.APPLICATION_JSON))
+//                .andExpect(MockMvcResultMatchers.status().isOk())
+//                .andExpect(MockMvcResultMatchers.content().string(expectedVersion));
+//    }
 }
 

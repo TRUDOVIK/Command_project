@@ -1,6 +1,6 @@
 package com.example.backend.configuration;
 
-import com.example.backend.data.ServerSpecification;
+import com.example.backend.filter.ServerSpecification;
 import org.springframework.context.annotation.Bean;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;

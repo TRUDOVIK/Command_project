@@ -1,5 +1,6 @@
 package com.example.backend.data;
 
+import com.example.backend.filter.DateConstraint;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,4 +30,5 @@ public class GetServerParam {
     private Integer status;
     @Min(value = 0, message = "Указано неверное значение типа") @Max(value = 2, message = "Указано неверное значение типа")
     private Integer type;
+    private String indicator;
 }

@@ -1,0 +1,64 @@
+# Docker Compose file Reference (https://docs.docker.com/compose/compose-file/)
+version: "3.7"
+
+services:
+  # Database Service (Postgres)
+  postgres:
+    image: postgres:latest
+    hostname: postgres
+    ports:
+      - "5432:5432"
+    restart: on-failure
+    container_name: servers
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=OTSC
+      - PGDATA=/var/lib/postgresql/data
+    networks:
+      - backend
+    healthcheck:
+      interval: 30s
+      timeout: 30s
+      retries: 3
+
+  # Backend Service
+  spring-api:
+    build:
+      context: .
+      dockerfile: Spring.Dockerfile
+    ports:
+      - "8040:8040" # Forward the exposed port 8080 on the container to port 8080 on the host machine
+    restart: on-failure
+    depends_on:
+      - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://localhost:5432/servers
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+      CLIENT_ALLOWED_CORS_ORIGINS: http://localhost:8080
+    networks: # Networks to join (Services on the same network can communicate with each other using their name)
+      - backend
+      - frontend
+
+  # Frontend Service
+  angular-client:
+    build:
+      context: ./serverpingstatustracker-app
+      dockerfile: Angular.Dockerfile
+      args:
+        API_BASE_URL: http://localhost:8080
+    ports:
+      - "8081:80" # Map the exposed port 80 on the container to port 8081 on the host machine
+    restart: unless-stopped
+    depends_on:
+      - spring-api
+    networks:
+      - frontend
+
+networks:
+  backend:
+  frontend:
+
+volumes:
+  postgres:

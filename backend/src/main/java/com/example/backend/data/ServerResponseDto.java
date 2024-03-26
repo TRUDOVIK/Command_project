@@ -1,5 +1,6 @@
 package com.example.backend.data;
 
+import com.example.backend.filter.DateConstraint;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

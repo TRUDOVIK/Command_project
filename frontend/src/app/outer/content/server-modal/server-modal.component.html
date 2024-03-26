@@ -1,0 +1,61 @@
+<button class="btn btn-primary d-inline-flex align-items-center" type="button" mdbRipple (click)="openLg(content)">Add
+	Server</button>
+
+<ng-template #content let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title">Add Server</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click');onSubmitEvent.emit()"></button>
+	</div>
+	<div class="modal-body">
+		<form [formGroup]="serverForm">
+
+			<div class="mb-3">
+				<label for="name" class="form-label">Name*: </label>
+				<input id="name" type="text" class="form-control" formControlName="name" required>
+			</div>
+
+			<div class="mb-3">
+				<label for="description" class="form-label">Description*: </label>
+				<textarea class="form-control" rows="3" id="description" type="text" formControlName="description"
+					required></textarea>
+			</div>
+
+			<div class="mb-3">
+				<label for="address" class="form-label">Server Address*: </label>
+				<input id="address" type="text" class="form-control" formControlName="address" required>
+			</div>
+
+			<div ngbDropdown class="d-inline-block mb-3">
+				<label class="form-label">Server Type*: </label>
+				<button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
+					{{serverType}}
+				</button>
+				<div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+					<button (click)="setType('WEB')" ngbDropdownItem>WEB</button>
+					<button (click)="setType('VPN')" ngbDropdownItem>VPN</button>
+					<button (click)="setType('GAME')" ngbDropdownItem>GAME</button>
+				</div>
+			</div>
+
+			<div class="mb-3">
+				<label for="comment" class="form-label">Server Comment: </label>
+				<textarea class="form-control" rows="3" id="comment" type="text" formControlName="comment"></textarea>
+			</div>
+
+			<div class="mb-3">
+				<label for="additionalIndicators" class="form-label">Additional Indicators*: </label>
+				<input id="additionalIndicators" type="text" class="form-control" formControlName="additionalIndicators"
+					required>
+			</div>
+
+			<small>* - required field</small>
+
+			<div class="modal-footer">
+				<button type="submit" [disabled]="!serverForm.valid || !isTypeValid()" class="btn btn-success"
+									(click)="modal.close('Save click');onSubmit()">Submit</button>
+			</div>
+
+		</form>
+	</div>
+
+</ng-template>

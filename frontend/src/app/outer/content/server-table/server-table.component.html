@@ -1,0 +1,82 @@
+<div class="d-flex gap-5 justify-content-center py-5" *ngIf="!obsActive">
+    <ngbd-modal-options (onSubmitEvent)="ngOnInit()" (onOpenEvent)="pingStop()" ></ngbd-modal-options>
+    <div ngbDropdown class="d-inline-block">
+        <button type="button" class="btn btn-outline-secondary d-inline-flex align-items-center" id="dropdownBasic1"
+            ngbDropdownToggle>
+            Configuration: {{currentIndicator}}
+        </button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button ngbDropdownItem (click)="selectIndicator('All')">All</button>
+            <div class="dropdown-divider"></div>
+            <div *ngFor="let item of indicators">
+                <button ngbDropdownItem (click)="selectIndicator(item)">{{item}}</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="spinner-border" role="status" *ngIf="waiting">
+    <span class="visually-hidden">Loading...</span>
+</div>
+<table class="table table-striped" *ngIf="!obsActive">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col" sortable="name" (sort)="onSort($event)">Name</th>
+            <th scope="col" sortable="type" (sort)="onSort($event)">Type</th>
+            <th scope="col" sortable="status" (sort)="onSort($event)">Status</th>
+            <th scope="col" sortable="lastWorkDate" (sort)="onSort($event)">Last Work Date</th>
+            <th scope="col" sortable="description" (sort)="onSort($event)">Description</th>
+            <th scope="col" sortable="serverAddress" (sort)="onSort($event)">Server Address</th>
+            <th scope="col" sortable="additionalIndicators" (sort)="onSort($event)">Indicator</th>
+            <th scope="col" sortable="updateDate" (sort)="onSort($event)">Update Date</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let item of servers">
+        <tr>
+            <th scope="row">
+                {{item.id}}
+            </th>
+            <td>
+                {{item.name}}
+            </td>
+            <td>
+                <span
+                    [ngClass]="item.type ==='WEB' ? 'badge text-bg-primary rounded-pill' : 'badge text-bg-info rounded-pill'">
+                    {{item.type}}
+                </span>
+            </td>
+            <td>
+                <server-content [server]="item" [serverCreateModalOpen] = 'createModalOpen'></server-content>
+            </td>
+            <td>
+                {{item.lastWorkDate}}
+            </td>
+            <td>
+                {{item.description}}
+            </td>
+            <td>
+                {{item.serverAddress}}
+            </td>
+            <td>
+                {{item.additionalIndicators}}
+            </td>
+            <td>
+                {{item.updateDate}}
+            </td>
+
+            <td style="width: 13%;">
+                <button (click)="proceedToObserver(item)" class="btn btn-light rounded-pill px-3 m-2" type="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M10 17l5-5-5-5" />
+                        <path d="M13.8 12H3m9 10a10 10 0 1 0 0-20" />
+                    </svg>
+                </button>
+
+                <server-delete-modal [serverID]="item.id" (onSubmitEvent)="ngOnInit()" (onOpenEvent)="pingStop()"></server-delete-modal>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<server-observer *ngIf="obsActive" [item]="currentServer" (onObserverExit)="exitObserver()"></server-observer>

@@ -1,0 +1,65 @@
+<button class="btn btn-light rounded-pill px-3 m-3" type="button" mdbRipple (click)="openLg(content)">
+	<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000"
+		stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<polygon points="16 3 21 8 8 21 3 21 3 16 16 3"></polygon>
+	</svg>Edit</button>
+
+<ng-template #content let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title">Edit Server Information</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+		<form [formGroup]="serverForm" (ngSubmit)="onSubmit()">
+
+			<div class="mb-3">
+				<label for="name" class="form-label">Name*: </label>
+				<input id="name" type="text" class="form-control" formControlName="name" value = 'asdasd' required>
+			</div>
+
+			<div class="mb-3">
+				<label for="description" class="form-label">Description*: </label>
+				<textarea class="form-control" rows="3" id="description" type="text" formControlName="description"
+					required placeholder="{{item.description}}"></textarea>
+			</div>
+
+			<div class="mb-3">
+				<label for="address" class="form-label">Server Address*: </label>
+				<input id="address" type="text" class="form-control" formControlName="address" required
+					placeholder="{{item.serverAddress}}">
+			</div>
+
+			<div ngbDropdown class="d-inline-block mb-3">
+				<label class="form-label">Server Type*: </label>
+				<button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
+					{{item.type}}
+				</button>
+				<div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+					<button (click)="setType('WEB')" ngbDropdownItem>WEB</button>
+					<button (click)="setType('VPN')" ngbDropdownItem>VPN</button>
+					<button (click)="setType('GAME')" ngbDropdownItem>GAME</button>
+				</div>
+			</div>
+
+			<div class="mb-3">
+				<label for="comment" class="form-label">Server Comment: </label>
+				<textarea class="form-control" rows="3" id="comment" type="text" formControlName="comment"></textarea>
+			</div>
+
+			<div class="mb-3">
+				<label for="additionalIndicators" class="form-label">Additional Indicators*: </label>
+				<input id="additionalIndicators" type="text" class="form-control" formControlName="additionalIndicators"
+					required>
+			</div>
+
+			<small>* - required field</small>
+
+			<div class="modal-footer">
+				<button type="submit" [disabled]="!serverForm.valid" class="btn btn-success"
+					(click)="modal.close('Save click')">Submit</button>
+			</div>
+
+		</form>
+	</div>
+
+</ng-template>
