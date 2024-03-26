@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<object xmlns="http://n2oapp.net/framework/config/schema/object-4.0"
+        name="Добавить пункт">
+    <fields>
+        <reference id="status" mapping="['status']" object-id="status"/>
+        <reference id="serviceType" mapping="['serviceType']" object-id="serviceType"/>
+    </fields>
+    <operations>
+        <operation id="create" name="Сохранение">
+            <invocation refresh-on-success="true">
+                <test file="data.json" operation="create"/>
+            </invocation>
+            <in>
+                <reference id="status" required="true"/>
+                <reference id="serviceType" required="true"/>
+                <field id="serverName" required="true"/>
+                <field id="date" required="true"/>
+                <field id="serviceType.name"/>
+                <field id="lastWorkDate"/>
+                <field id="description"/>
+                <field id="serverAdres"/>
+                <field id="comment"/>
+                <field id="pollingInterval"/>
+                <field id="updateDate"/>
+                <field id="additionalIndicators"/>
+            </in>
+            <out>
+                <field id="id"/>
+                <field id="serviceType.id"/>
+            </out>
+        </operation>
+        <operation id="delete">
+            <invocation refresh-on-success="true">
+                <test file="META-INF/conf/data.json" operation="delete"/>
+            </invocation>
+            <in>
+                <field id="id"/>
+            </in>
+        </operation>
+    </operations>
+</object>

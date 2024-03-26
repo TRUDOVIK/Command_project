@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page xmlns="http://n2oapp.net/framework/config/schema/page-4.0"
+      name="Удалить строку?">
+    <datasources>
+        <parent-datasource id="dataTable"/>
+    </datasources>
+    <regions>
+        <region>
+            <form datasource="dataTable">
+                <toolbar place="bottomLeft">
+                    <group>
+                        <button id="delete" label="Удалить" color="info" disable-on-empty-model="false">
+                            <invoke operation-id="delete" message-on-success="false" refresh-datasources="dataTable" object-id="addItem"/>
+                            <close/>
+                        </button>
+                        <button label="Закрыть" disable-on-empty-model="false">
+                            <close/>
+                        </button>
+                    </group>
+                </toolbar>
+            </form>
+        </region>
+    </regions>
+</page>

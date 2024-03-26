@@ -1,0 +1,229 @@
+[ {
+  "id" : 1,
+  "date" : "2016-01-01",
+  "serverName" : "Heroes and Generals",
+  "serviceType" : {
+    "id" : 1,
+    "name" : "Игровой"
+  },
+  "status" : {
+    "id" : 1,
+    "name" : "Лежит"
+  },
+  "lastWorkDate" : "2023-05-25",
+  "description" : "Игра была закрыта на неопределенный срок",
+  "serverAdres" : "Адрес сервера Heroes and Generals",
+  "comment" : "F",
+  "pollingInterval" : "Интервал",
+  "updateDate" : "2023-07-25",
+  "additionalIndicators" : "Дополнительные показатели"
+}, {
+  "id" : 2,
+  "date" : "2020-01-01",
+  "serverName" : "Hunt Showdown",
+  "serviceType" : {
+    "id" : 1,
+    "name" : "Игровой"
+  },
+  "status" : {
+    "id" : 2,
+    "name" : "Работает"
+  },
+  "lastWorkDate" : "today",
+  "description" : "Сервер работает с незначительными сбоям",
+  "serverAdres" : "Адрес сервера Hunt Showdown",
+  "comment" : "Комментарий",
+  "pollingInterval" : "Интервал",
+  "updateDate" : "2023-07-25",
+  "additionalIndicators" : "Дополнительные показатели"
+}, {
+  "id" : 3,
+  "date" : "2022-01-01",
+  "serverName" : "Windscribe USA 1",
+  "serviceType" : {
+    "id" : 2,
+    "name" : "Бесплатный VPN"
+  },
+  "status" : {
+    "id" : 1,
+    "name" : "Лежит"
+  },
+  "lastWorkDate" : "2023-05-25",
+  "description" : "Сервер работает раз в 100 лет",
+  "serverAdres" : "Адрес сервера Windscribe USA 1",
+  "comment" : "Комментарий",
+  "pollingInterval" : "Интервал",
+  "updateDate" : "2023-07-25",
+  "additionalIndicators" : "Дополнительные показатели"
+}, {
+  "id" : 4,
+  "date" : "2016-01-01",
+  "serverName" : "Heroes and Generals",
+  "serviceType" : {
+    "id" : 1,
+    "name" : "Игровой"
+  },
+  "status" : {
+    "id" : 1,
+    "name" : "Лежит"
+  },
+  "lastWorkDate" : "2023-05-25",
+  "description" : "Игра была закрыта на неопределенный срок",
+  "serverAdres" : "Адрес сервера Heroes and Generals",
+  "comment" : "F",
+  "pollingInterval" : "Интервал",
+  "updateDate" : "2023-07-25",
+  "additionalIndicators" : "Дополнительные показатели"
+}, {
+  "id" : 5,
+  "date" : "2020-01-01",
+  "serverName" : "Hunt Showdown",
+  "serviceType" : {
+    "id" : 1,
+    "name" : "Игровой"
+  },
+  "status" : {
+    "id" : 2,
+    "name" : "Работает"
+  },
+  "lastWorkDate" : "today",
+  "description" : "Сервер работает с незначительными сбоями",
+  "serverAdres" : "Адрес сервера Hunt Showdown",
+  "comment" : "Комментарий",
+  "pollingInterval" : "Интервал",
+  "updateDate" : "2023-07-25",
+  "additionalIndicators" : "Дополнительные показатели"
+}, {
+  "id" : 6,
+  "date" : "2022-01-01",
+  "serverName" : "Windscribe USA 1",
+  "serviceType" : {
+    "id" : 2,
+    "name" : "Бесплатный VPN"
+  },
+  "status" : {
+    "id" : 1,
+    "name" : "Лежит"
+  },
+  "lastWorkDate" : "2023-05-25",
+  "description" : "Сервер работает раз в 100 лет",
+  "serverAdres" : "Адрес сервера Windscribe USA 1",
+  "comment" : "Комментарий",
+  "pollingInterval" : "Интервал",
+  "updateDate" : "2023-07-25",
+  "additionalIndicators" : "Дополнительные показатели"
+}, {
+  "id" : 7,
+  "date" : "2016-01-01",
+  "serverName" : "Heroes and Generals",
+  "serviceType" : {
+    "id" : 1,
+    "name" : "Игровой"
+  },
+  "status" : {
+    "id" : 1,
+    "name" : "Лежит"
+  },
+  "lastWorkDate" : "2023-05-25",
+  "description" : "Игра была закрыта на неопределенный срок",
+  "serverAdres" : "Адрес сервера Heroes and Generals",
+  "comment" : "F",
+  "pollingInterval" : "Интервал",
+  "updateDate" : "2023-07-25",
+  "additionalIndicators" : "Дополнительные показатели"
+}, {
+  "id" : 8,
+  "date" : "2020-01-01",
+  "serverName" : "Hunt Showdown",
+  "serviceType" : {
+    "id" : 1,
+    "name" : "Игровой"
+  },
+  "status" : {
+    "id" : 2,
+    "name" : "Работает"
+  },
+  "lastWorkDate" : "today",
+  "description" : "Сервер работает с незначительными сбоями",
+  "serverAdres" : "Адрес сервера Hunt Showdown",
+  "comment" : "Комментарий",
+  "pollingInterval" : "Интервал",
+  "updateDate" : "2023-07-25",
+  "additionalIndicators" : "Дополнительные показатели"
+}, {
+  "id" : 9,
+  "date" : "2022-01-01",
+  "serverName" : "Windscribe USA 1",
+  "serviceType" : {
+    "id" : 2,
+    "name" : "Бесплатный VPN"
+  },
+  "status" : {
+    "id" : 1,
+    "name" : "Лежит"
+  },
+  "lastWorkDate" : "2023-05-25",
+  "description" : "Сервер работает раз в 100 лет",
+  "serverAdres" : "Адрес сервера Windscribe USA 1",
+  "comment" : "Комментарий",
+  "pollingInterval" : "Интервал",
+  "updateDate" : "2023-07-25",
+  "additionalIndicators" : "Дополнительные показатели"
+}, {
+  "id" : 10,
+  "date" : "2016-01-01",
+  "serverName" : "Heroes and Generals",
+  "serviceType" : {
+    "id" : 1,
+    "name" : "Игровой"
+  },
+  "status" : {
+    "id" : 1,
+    "name" : "Лежит"
+  },
+  "lastWorkDate" : "2023-05-25",
+  "description" : "Игра была закрыта на неопределенный срок",
+  "serverAdres" : "Адрес сервера Heroes and Generals",
+  "comment" : "F",
+  "pollingInterval" : "Интервал",
+  "updateDate" : "2023-07-25",
+  "additionalIndicators" : "Дополнительные показатели"
+}, {
+  "id" : 11,
+  "date" : "2020-01-01",
+  "serverName" : "Hunt Showdown",
+  "serviceType" : {
+    "id" : 1,
+    "name" : "Игровой"
+  },
+  "status" : {
+    "id" : 2,
+    "name" : "Работает"
+  },
+  "lastWorkDate" : "today",
+  "description" : "Сервер работает с незначительными сбоями",
+  "serverAdres" : "Адрес сервера Hunt Showdown",
+  "comment" : "Комментарий",
+  "pollingInterval" : "Интервал",
+  "updateDate" : "2023-07-25",
+  "additionalIndicators" : "Дополнительные показатели"
+}, {
+  "id" : 12,
+  "date" : "2022-01-01",
+  "serverName" : "Windscribe USA 1",
+  "serviceType" : {
+    "id" : 2,
+    "name" : "Бесплатный VPN"
+  },
+  "status" : {
+    "id" : 1,
+    "name" : "Лежит"
+  },
+  "lastWorkDate" : "2023-05-25",
+  "description" : "Сервер работает раз в 100 лет",
+  "serverAdres" : "Адрес сервера Windscribe USA 1",
+  "comment" : "Комментарий",
+  "pollingInterval" : "Интервал",
+  "updateDate" : "2023-07-25",
+  "additionalIndicators" : "Дополнительные показатели"
+} ]

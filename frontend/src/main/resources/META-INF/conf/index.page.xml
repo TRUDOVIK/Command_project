@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page xmlns="http://n2oapp.net/framework/config/schema/page-4.0" name="Список серверов"
+      show-title="true">
+    <datasources>
+        <datasource id="dataTable" query-id="data" size="5" object-id="addItem"/>
+    </datasources>
+    <regions>
+        <table datasource="dataTable" auto-select="false">
+            <columns>
+                <filter-column text-field-id="serverName">
+                    <filter>
+                        <input-text id="serverName" label="Имя сервера"/>
+                    </filter>
+                </filter-column>
+                <filter-column text-field-id="date" sorting-field-id="date" sorting-direction="DESC">
+                    <cell>
+                        <text format="date DD.MM.YYYY"/>
+                    </cell>
+                    <filter>
+                        <date-interval id="date"/>
+                    </filter>
+                </filter-column>
+
+                <filter-column id="serviceType" text-field-id="serviceType.name" label="Тип веб-сервиса">
+                    <filter>
+                        <select id="serviceType.id">
+                            <options>
+                                <option id="1" name="Игровой"/>
+                                <option id="2" name="Бесплатный VPN"/>
+                            </options>
+                        </select>
+                    </filter>
+                </filter-column>
+                <filter-column id="status" text-field-id="status.name" label="Статус">
+                    <filter>
+                        <select id="status">
+                            <options>
+                                <option id="1" name="Лежит"/>
+                                <option id="2" name="Работает"/>
+                            </options>
+                        </select>
+                    </filter>
+                </filter-column>
+                <column text-field-id="option" label="Удалить">
+                    <toolbar>
+                        <button id="del" icon="fa fa-trash">
+                            <show-modal page-id="confirmation" scrollable="false" route="/del"/>
+                        </button>
+                    </toolbar>
+                </column>
+            </columns>
+            <rows>
+                <click>
+                    <open-page page-id="information" route="/:id/open">
+                        <params>
+                            <path-param name="id" value="{id}"/>
+                        </params>
+                    </open-page>
+                </click>
+            </rows>
+        </table>
+    </regions>
+    <toolbar place="topLeft" collor="info">
+        <button label="Добавить пункт" disable-on-empty-model="false">
+            <show-modal page-id="addItem" scrollable="true" route="/add"/>
+        </button>
+    </toolbar>
+</page>

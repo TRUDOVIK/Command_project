@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<object xmlns="http://n2oapp.net/framework/config/schema/object-4.0"
+        name="Настройки">
+    <operations>
+        <operation id="update" name="Сохранение">
+            <invocation>
+                <test file="META-INF/conf/data.json" operation="update"/>
+            </invocation>
+            <in>
+                <field id="id"/>
+                <field id="serverName"/>
+                <field id="description"/>
+                <field id="comment"/>
+                <field id="pollingInterval"/>
+            </in>
+        </operation>
+        <operation id="cancel" name="Отменить">
+            <invocation>
+                <test file="settings.json" operation="cancel"/>
+            </invocation>
+            <in>
+                <field id="serverName"/>
+                <field id="description"/>
+                <field id="comment"/>
+                <field id="pollingInterval"/>
+            </in>
+        </operation>
+    </operations>
+</object>

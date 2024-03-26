@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<simple-page xmlns="http://n2oapp.net/framework/config/schema/page-4.0"
+             name="Страница записи">
+    <form>
+        <datasource query-id="settings" object-id="settings">
+            <filters>
+                <eq field-id="id" param="id"/>
+            </filters>
+        </datasource>
+        <toolbar place="topLeft">
+            <group>
+                <button id="edit" label="Редактировать" icon="fa fa-pencil" type="icon" visible="{flag == 0}">
+                    <set-value to="flag">1</set-value>
+                </button>
+                <button id="save" label="Сохранить" color="info" visible="{flag == 1}">
+                    <invoke operation-id="update"/>
+                    <set-value to="flag">0</set-value>
+                </button>
+                <button visible="{flag == 1}" id="cancel" label="Отменить"
+                        description="Отменяет текущие изменения"
+                        tooltip-position="top">
+                    <invoke operation-id="cancel" message-on-success="false"/>
+                    <set-value to="flag">0</set-value>
+                </button>
+            </group>
+        </toolbar>
+        <fields>
+            <input-text id="serverName" label="Имя сервера" enabled="{flag == 1}"/>
+            <date-time id="date" label="Дата добавления в реестр"  enabled="false"/>
+            <input-text id="serviceType.name" label="Тип веб-сервиса" enabled="false"/>
+            <input-text id="status.name" label="Статус" enabled="false"/>
+            <date-time id="lastWorkDate" label="Последняя дата работы"  enabled="false"/>
+            <input-text id="description" label="Описание" enabled="{flag == 1}"/>
+            <input-text id="serverAdres" label="Адрес сервера" enabled="false"/>
+            <input-text id="comment" label="Комментарий" enabled="{flag == 1}"/>
+            <input-text id="pollingInterval" label="Интервал опроса" enabled="{flag == 1}"/>
+            <date-time id="updateDate" label="Дата обновления"  enabled="false"/>
+            <input-text id="additionalIndicators" label="Дополнительные показатели" enabled="false"/>
+            <hidden id="flag" default-value="0"/>
+        </fields>
+    </form>
+
+</simple-page>

@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page xmlns="http://n2oapp.net/framework/config/schema/page-4.0"
+      name="Добавление сервера">
+    <regions>
+        <region>
+            <form>
+                <datasource object-id="addItem" default-values-mode="defaults">
+
+                </datasource>
+                <toolbar place="bottomRight">
+                    <group>
+                        <button id="create" label="Сохранить" color="info">
+                            <invoke operation-id="create" refresh-datasources="dataTable"/>
+                            <close/>
+                            <refresh/>
+                        </button>
+                        <button label="Закрыть" disable-on-empty-model="false">
+                            <close/>
+                        </button>
+                    </group>
+                </toolbar>
+                <fields>
+                    <input-text id="serverName" label="Имя сервера"/>
+                    <date-time id="date" label="Дата добавления в реестр" default-value="{$.today()}"/>
+                    <input-select id="serviceType" label="Тип веб-сервиса">
+                        <options>
+                            <option id="1" name="Игровой"/>
+                            <option id="2" name="Бесплатный VPN"/>
+                        </options>
+                    </input-select>
+                    <input-select id="status" label="Статус">
+                        <options>
+                            <option id="1" name="Лежит"/>
+                            <option id="2" name="Работает"/>
+                        </options>
+                    </input-select>
+                    <date-time id="lastWorkDate" label="Последняя дата работы"/>
+                    <input-text id="description" label="Описание">
+                        <validations>
+                            <condition id="descriptionLength"
+                                       severity="danger"
+                                       message="Минимальная длина равна 10 символам">
+                                description.length >= 10
+                            </condition>
+                        </validations>
+                    </input-text>
+                    <input-text id="serverAdres" label="Адрес сервера"/>
+                    <input-text id="comment" label="Комментарий"/>
+                    <input-text id="pollingInterval" label="Интервал опроса">
+                        <validations>
+                            <condition id="checkNaturalNumber"
+                                       severity="danger"
+                                       message="Интервал должен быть положительным числом"
+                                       field-id="pollingInterval">
+                                pollingInterval > 0
+                            </condition>
+                        </validations>
+                    </input-text>
+                    <date-time id="updateDate" label="Дата обновления"/>
+                    <input-text id="additionalIndicators" label="Дополнительные показатели"/>
+                </fields>
+            </form>
+        </region>
+    </regions>
+</page>

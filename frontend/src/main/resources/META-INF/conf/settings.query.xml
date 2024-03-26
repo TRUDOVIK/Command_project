@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<query xmlns="http://n2oapp.net/framework/config/schema/query-5.0">
+    <list>
+        <test file="META-INF/conf/data.json" operation="findAll"/>
+    </list>
+    <count>
+        <test file="META-INF/conf/data.json" operation="count"/>
+    </count>
+    <filters>
+        <eq field-id="id" filter-id="id"/>
+        <more field-id="date" filter-id="date.begin"/>
+        <less field-id="date" filter-id="date.end"/>
+        <like field-id="serverName" filter-id="serverName"/>
+        <eq field-id="serviceType" filter-id="serviceType.id" mapping="['serviceType.id']">serviceType.id:eq:serviceType.id</eq>
+        <eq field-id="status" filter-id="status.id" mapping="['status.id']">status.id:eq:status.id</eq>
+        <eq field-id="lastWorkDate" filter-id="lastWorkDate"/>
+        <eq field-id="description" filter-id="description"/>
+        <eq field-id="serverAdres" filter-id="serverAdres"/>
+        <eq field-id="comment" filter-id="comment"/>
+        <eq field-id="pollingInterval" filter-id="pollingInterval"/>
+        <eq field-id="updateDate" filter-id="updateDate"/>
+        <eq field-id="additionalIndicators" filter-id="additionalIndicators"/>
+    </filters>
+    <fields>
+        <field id="id"/>
+        <field id="flag" default-value="0"/>
+        <field id="date" name="Дата добавления в реестр"/>
+        <field id="serverName" name="Имя сервера"/>
+        <field id="serviceType" name="Тип веб-сервиса" />
+        <field id="status" name="Статус"/>
+        <field id="lastWorkDate"/>
+        <field id="description"/>
+        <field id="serverAdres"/>
+        <field id="comment"/>
+        <field id="pollingInterval"/>
+        <field id="updateDate"/>
+        <field id="additionalIndicators"/>
+    </fields>
+</query>
